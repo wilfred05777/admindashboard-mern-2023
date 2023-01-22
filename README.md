@@ -6,6 +6,8 @@
 
 <hr>
 
+## PART A.) SERVER/BACKEND SETUP
+
 ```js
 ROOT
   |──client
@@ -128,3 +130,42 @@ npm run dev
 ###### /_ MONGOOSE SETUP _/
 
 const PORT = process.env.PORT
+
+<hr>
+
+## PART B.) CLIENT/FRONT-END SETUP
+
+```js
+ROOT
+  |──client <---we are here
+  |    |──node_modules
+  |    |──public
+  |    |──src
+  |    |    └── components
+  |    |    └── components
+  |──server
+  |    ├── data
+  |    │    └──
+  |    ├── controllers
+  |    │    └── clients.js
+  |    │    └── general.js
+  |    │    └── management.js
+  |    │    └── sales.js
+  |    ├── models
+  |    │    └── todo.js
+  |    ├── node_modules
+  |    ├── routes
+  |    │    └── clients.js
+  |    │    └── general.js
+  |    │    └── management.js
+  |    │    └── sales.js
+  |    ├── .env
+  |    ├── server.js
+  ├── package-lock.json
+  └── package.json
+```
+
+```js
+// root folder and type this command in the terminal
+npm create vite@latest
+```
