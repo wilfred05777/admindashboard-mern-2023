@@ -7,7 +7,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 
 /* importing Routes */
-import clientRoutes from "./routes/clients.js";
+import clientRoutes from "./routes/client.js";
 import generalRoutes from "./routes/general.js";
 import managementRoutes from "./routes/management.js";
 import salesRoutes from "./routes/sales.js";

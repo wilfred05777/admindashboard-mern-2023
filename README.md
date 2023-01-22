@@ -49,7 +49,21 @@ import morgan from "morgan";
 /**
  * CONFIGURATION
  */
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import helmet from "helmet";
+import morgan from "morgan";
 
+/* importing Routes */
+import clientRoutes from "./routes/client.js";
+import generalRoutes from "./routes/general.js";
+import managementRoutes from "./routes/management.js";
+import salesRoutes from "./routes/sales.js";
+
+/* CONFIGURATION */
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -64,7 +78,7 @@ app.use(cors());
  * ROUTES
  */
 app.use("/client", clientRoutes);
-app.use("/general", generalRoues);
+app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
 ```
@@ -96,4 +110,10 @@ PORT = 5001
 /** NOTE==about node and nodemon ========**/
 // the reason we don't use nodemon on start is because we are going to deploy our app in live server we USE node that is why on start it uses NODE
 
+```
+
+```js
+// /server folder
+// checking if the node server has no error
+npm run dev
 ```
