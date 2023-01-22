@@ -367,3 +367,62 @@ body,
 }
 
 ```
+
+<hr>
+
+##### CONFIGURE REACT REDUX on the PROJECT
+
+<!-- 0:33:00 t0 0:36:49 -->
+
+- steps:
+  - create state in client/src/state/index.tsx
+  - the plugin it the entire app through index.js or main.tsx
+
+```tsx
+/// client/src/state/index.tsx
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  mode: "dark"
+};
+
+export const globalSlice = createSlice({
+  name: "global",
+  initialState,
+  reducers: {
+    setMode: (state) => {
+      state.mode = state.mode === "light" ? "dark" : "light";
+    }
+  }
+});
+
+export const { setMode } = globalSlice.actions;
+
+export default globalSlice.reducer;
+```
+
+```tsx
+/// client/src/main.tsx
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.scss";
+import { configureStore } from "@reduxjs/toolkit";
+import globalReducer from "./state";
+import { Provider } from "react-redux";
+
+const store = configureStore({
+  reducer: {
+    global: globalReducer
+  }
+});
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+```
