@@ -496,7 +496,7 @@ export default App;
 ### Implementing Routing - 0:43:50 BrowserRouter and Routes Implementation
 
 ```tsx
-/// 0:43:30
+/// 0:43:30 - 0:46:13
 /// client/src/app.tsx
 
 import { useMemo } from "react";
@@ -507,6 +507,8 @@ import { createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Dashboard from "./screen/dashboard/index";
+import Layout from "./screen/layout/index";
 
 const App = () => {
   const mode = useSelector((state: any) => state.global.mode);

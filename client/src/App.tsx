@@ -2,12 +2,12 @@ import { useMemo } from "react";
 import "./App.scss";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/material/styles"; /// naa ra di mali diri potek
+import { createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Dashboard from "./components/dashboard/index";
-import Layout from "./components/layout/index";
+import Dashboard from "./screen/dashboard/index";
+import Layout from "./screen/layout/index";
 
 const App = () => {
   const mode = useSelector((state: any) => state.global.mode);
