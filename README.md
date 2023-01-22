@@ -340,3 +340,30 @@ export const themeSettings = (mode) => {
   };
 };
 ```
+
+###### Setup data
+
+```js
+// backend /server/data/index.js
+
+//  copy content from this
+[repo](https://github.com/ed-roh/fullstack-admin/blob/master/server/data/index.js)
+
+```
+
+###### setup google font "Inter"
+
+```js
+// client/src/index.scss
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+```
