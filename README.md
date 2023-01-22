@@ -1,9 +1,12 @@
 ## ADMIN Dashboard MERN
 
 <hr>
-#### [tutsource EdRoh](https://www.youtube.com/watch?v=0cPCMIuDk2I)
+
+#### [tutsource-EdRoh](https://www.youtube.com/watch?v=0cPCMIuDk2I)
+
 <hr>
-```ROOT
+```
+ROOT
   |──client
   |    |──node_modules
   |    |──public
