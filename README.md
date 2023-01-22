@@ -1,6 +1,34 @@
 ## ADMIN Dashboard MERN
 
 <hr>
+```ROOT
+  |──client
+  |    |──node_modules
+  |    |──public
+  |    |──src
+  |    |    └── components
+  |    |    └── components
+  |──server <---we are here
+  |    ├── data
+  |    │    └── 
+  |    ├── controllers
+  |    │    └── clients.js
+  |    │    └── general.js
+  |    │    └── management.js
+  |    │    └── sales.js
+  |    ├── models
+  |    │    └── todo.js
+  |    ├── node_modules
+  |    ├── routes
+  |    │    └── clients.js
+  |    │    └── general.js
+  |    │    └── management.js
+  |    │    └── sales.js
+  |    ├── .env
+  |    ├── server.js 
+  ├── package-lock.json
+  └── package.json
+```
 
 ```js
 // /server/ folder
@@ -39,4 +67,33 @@ app.use("/client", clientRoutes);
 app.use("/general", generalRoues);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+```
+
+```json
+// /server/package.json
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module", <--- allows us to import modules
+}
+```
+
+```
+<!-- .env -->
+MONGO_URL = 'mongodb+srv://wilfred:wilfredadmin@wilfredcluster.rsfdy.mongodb.net/mern-admindashboard-app?retryWrites=true&w=majority'
+PORT = 5001
+
+```
+
+```js
+// package.json
+
+ "start": "node index.js",
+  "dev": "nodemon index.js",
+
+/** NOTE==about node and nodemon ========**/
+// the reason we don't use nodemon on start is because we are going to deploy our app in live server we USE node that is why on start it uses NODE
+
 ```
