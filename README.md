@@ -1,6 +1,8 @@
 ## ADMIN Dashboard MERN
 
 <hr>
+#### [tutsource EdRoh](https://www.youtube.com/watch?v=0cPCMIuDk2I)
+<hr>
 ```ROOT
   |──client
   |    |──node_modules
@@ -117,3 +119,9 @@ PORT = 5001
 // checking if the node server has no error
 npm run dev
 ```
+
+<hr>
+
+###### /_ MONGOOSE SETUP _/
+
+const PORT = process.env.PORT
