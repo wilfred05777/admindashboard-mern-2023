@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.scss'
+import { useMemo } from "react";
+import "./App.scss";
+
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/system";
+import { useSelector } from "react-redux";
+import { themeSettings } from "./theme";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const mode = useSelector((state: any) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+ 
 
   return (
     <div className="App">
-      <div className="header">
-        test
-      </div>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+      </ThemeProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
