@@ -1,15 +1,3 @@
-## ADMIN Dashboard MERN
-
-<hr>
-
-```js
-// /server/ folder
-npm install express body-parser cors dotenv helmet morgan mongoose nodemon
-```
-
-```js
-//server/index.js
-
 import express from "express";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
@@ -18,10 +6,13 @@ import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
 
-/**
- * CONFIGURATION
- */
+/* importing Routes */
+import clientRoutes from "./routes/clients.js";
+import generalRoutes from "./routes/general.js";
+import managementRoutes from "./routes/management.js";
+import salesRoutes from "./routes/sales.js";
 
+/* CONFIGURATION */
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -36,7 +27,6 @@ app.use(cors());
  * ROUTES
  */
 app.use("/client", clientRoutes);
-app.use("/general", generalRoues);
+app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
-```
