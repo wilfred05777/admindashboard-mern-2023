@@ -1,8 +1,12 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext", "es6" ],
+    "noImplicitAny": true, // added
+    "noImplicitThis": true, // added
+    "strictNullChecks": true, // added
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
