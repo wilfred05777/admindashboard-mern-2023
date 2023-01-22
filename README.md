@@ -194,15 +194,14 @@ npm i react-redux @reduxjs/toolkit react-datepicker react-router-dom@6 @mui/mate
 
 ###### ADDING themes
 
-```js
+```tsx
 // client/src/theme.js
+// color design tokens export
 export const tokensDark = {
-  // select color then ctrl:k, ctrl+g
-
   grey: {
-    0: "#ffffff",
-    10: "#f6f6f6",
-    50: "#f0f0f0",
+    0: "#ffffff", // manually adjusted
+    10: "#f6f6f6", // manually adjusted
+    50: "#f0f0f0", // manually adjusted
     100: "#e0e0e0",
     200: "#c2c2c2",
     300: "#a3a3a3",
@@ -212,9 +211,8 @@ export const tokensDark = {
     700: "#3d3d3d",
     800: "#292929",
     900: "#141414",
-    1000: "#000000"
+    1000: "#000000" // manually adjusted
   },
-
   primary: {
     // blue
     100: "#d3d4de",
@@ -222,16 +220,16 @@ export const tokensDark = {
     300: "#7a7f9d",
     400: "#4d547d",
     500: "#21295c",
-    600: "#191F45",
+    600: "#191F45", // manually adjusted
     700: "#141937",
     800: "#0d1025",
     900: "#070812"
   },
-
   secondary: {
-    50: "#f0f0f0",
+    // yellow
+    50: "#f0f0f0", // manually adjusted
     100: "#fff6e0",
-    200: "#ffe3a3",
+    200: "#ffedc2",
     300: "#ffe3a3",
     400: "#ffda85",
     500: "#ffd166",
@@ -242,33 +240,31 @@ export const tokensDark = {
   }
 };
 
-/// function that reverses the color palette
-function reverseTokens(tokensDark) {
-  const reversedTokens = {};
+// function that reverses the color palette
+function reverseTokens(tokensDark: any) {
+  const reversedTokens: any = {};
   Object.entries(tokensDark).forEach(([key, val]) => {
-    const keys = Object.keys(val);
-    const values = Object.values(val);
+    const keys = Object.keys({ val });
+    const values = Object.values({ val });
     const length = keys.length;
-    const reversedObj = {};
+    const reversedObj: any = {};
     for (let i = 0; i < length; i++) {
-      // @ts-ignore
-      reversedObj[keys[i]] = values(length - i - 1);
+      reversedObj[keys[i]] = values[length - i - 1];
     }
     reversedTokens[key] = reversedObj;
   });
-  return reverseTokens;
+  return reversedTokens;
 }
-
 export const tokensLight = reverseTokens(tokensDark);
 
-/// mui theme settings
-export const themeSettings = (mode) => {
+// mui theme settings
+export const themeSettings = (mode: any) => {
   return {
     palette: {
       mode: mode,
       ...(mode === "dark"
         ? {
-            /// palette values for dark mode
+            // palette values for dark mode
             primary: {
               ...tokensDark.primary,
               main: tokensDark.primary[400],
@@ -288,24 +284,24 @@ export const themeSettings = (mode) => {
             }
           }
         : {
-            //  palette values for light mode
+            // palette values for light mode
             primary: {
-              ...tokensDark.primary,
+              ...tokensLight.primary,
               main: tokensDark.grey[50],
               light: tokensDark.grey[100]
             },
             secondary: {
-              ...tokensDark.secondary,
+              ...tokensLight.secondary,
               main: tokensDark.secondary[600],
               light: tokensDark.secondary[700]
             },
             neutral: {
-              ...tokensDark.grey,
+              ...tokensLight.grey,
               main: tokensDark.grey[500]
             },
             background: {
-              default: tokensDark.primary[0],
-              alt: tokensDark.primary[50]
+              default: tokensDark.grey[0],
+              alt: tokensDark.grey[50]
             }
           })
     },
@@ -313,27 +309,27 @@ export const themeSettings = (mode) => {
       fontFamily: ["Inter", "sans-serif"].join(","),
       fontSize: 12,
       h1: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 40
       },
       h2: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 32
       },
       h3: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 24
       },
       h4: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 20
       },
       h5: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 16
       },
       h6: {
-        fontFamily: ["Inter", "san-serif"].join(","),
+        fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 14
       }
     }
@@ -496,3 +492,46 @@ export default App;
 ```
 
 <hr>
+
+### Implementing Routing - 0:43:50 BrowserRouter and Routes Implementation
+
+```tsx
+/// 0:43:30
+/// client/src/app.tsx
+
+import { useMemo } from "react";
+import "./App.scss";
+
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { useSelector } from "react-redux";
+import { themeSettings } from "./theme";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
+const App = () => {
+  const mode = useSelector((state: any) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
+    </div>
+  );
+};
+
+export default App;
+```
+
+```
+
+```
