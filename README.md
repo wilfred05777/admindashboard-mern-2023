@@ -5,7 +5,8 @@
 #### [tutsource-EdRoh](https://www.youtube.com/watch?v=0cPCMIuDk2I)
 
 <hr>
-```
+
+```js
 ROOT
   |──client
   |    |──node_modules
@@ -15,7 +16,7 @@ ROOT
   |    |    └── components
   |──server <---we are here
   |    ├── data
-  |    │    └── 
+  |    │    └──
   |    ├── controllers
   |    │    └── clients.js
   |    │    └── general.js
@@ -30,7 +31,7 @@ ROOT
   |    │    └── management.js
   |    │    └── sales.js
   |    ├── .env
-  |    ├── server.js 
+  |    ├── server.js
   ├── package-lock.json
   └── package.json
 ```
