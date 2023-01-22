@@ -1,5 +1,10 @@
 ## ADMIN Dashboard MERN
 
+### DESCRIPTION
+
+    - USES MUI CSS Framework and little bit of tailwindcss extension for vscode
+    - MERN
+
 <hr>
 
 #### [tutsource-EdRoh](https://www.youtube.com/watch?v=0cPCMIuDk2I)
@@ -534,6 +539,46 @@ const App = () => {
 export default App;
 ```
 
+<hr>
+
+##### CREATING COMPONENT BASE MANNER STYLE IN MUI
+
+```tsx
+//// client/src/components/flexBetween/FlexBetween.tsx
+import { styled } from "@mui/material";
+import { Box } from "@mui/system";
+
+// style component in MUI system in a component manner
+
+const FlexBetween = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center"
+});
 ```
 
+- usage
+
+```tsx
+/// 0:50:31 -
+/// client/src/screen/layout/Layout.tsx
+
+import React, { useState } from "react";
+import { Box, useMediaQuery } from "@mui/material";
+import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Navbar from "../../components/navbar/Navbar";
+
+const Layout = () => {
+  return (
+    <Box width="100%" height="100%">
+      <Box>
+        <Navbar />
+        <Outlet />
+      </Box>
+    </Box>
+  );
+};
+
+export default Layout;
 ```
