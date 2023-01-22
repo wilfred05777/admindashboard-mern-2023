@@ -168,4 +168,14 @@ ROOT
 ```js
 // root folder and type this command in the terminal
 npm create vite@latest
+cd client
+npm install
+
+```
+
+```js
+// 0:22:42
+// install the following package in client
+npm i react-redux @reduxjs/toolkit react-datepicker react-router-dom@6 @mui/material @emotion/react @emotion/styled @mui/icons-material @mui/x-data-grid @nivo/core @nivo/bar @nivo/geo @nivo/pie
+
 ```
