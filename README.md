@@ -454,3 +454,17 @@ function App() {
 
 export default App;
 ```
+
+# !!Encountered MUI CssBaseline!!
+
+<hr>
+
+- Docs: [MUIandTailWindCSS](https://mui.com/material-ui/guides/interoperability/#setup)
+-
+
+- ## [vite-react](https://tailwindcss.com/docs/guides/vite)
+  ```
+  npm install -D tailwindcss postcss autoprefixer
+  ```
+
+<hr>
