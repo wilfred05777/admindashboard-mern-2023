@@ -6,7 +6,7 @@ import { createTheme } from "@mui/material/styles"; /// naa ra di mali diri pote
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
 
-function App() {
+const App = () => {
   const mode = useSelector((state: any) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
  
@@ -14,7 +14,6 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        
         <CssBaseline />
       </ThemeProvider>
     </div>
