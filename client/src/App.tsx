@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import "./App.scss";
 
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createTheme } from "@mui/system";
+import { createTheme } from "@mui/material/styles"; /// naa ra di mali diri potek
 import { useSelector } from "react-redux";
 import { themeSettings } from "./theme";
 
@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         
-        {/* <CssBaseline /> */}
+        <CssBaseline />
       </ThemeProvider>
     </div>
   );
